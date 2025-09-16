@@ -1,0 +1,46 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "ProfileGrpc";
+
+package Profile;
+
+service ProfileGrpcService {
+	rpc GetProfileById (GetProfileRequest) returns (GetProfileReply);
+	rpc DeductBalance (DeductBalanceRequest) returns (DeductBalanceReply);
+	rpc HanldeBalance (BalanceRequest) returns (BalanceReply);
+}
+
+message GetProfileRequest {}
+
+message GetProfileReply {
+	string studentId = 1;
+	string fullName = 2;
+	string balance = 3;
+	string gender = 4;
+	string phoneNumber = 5;
+	string Email = 6;
+	string marjor = 7;
+}
+
+message BalanceRequest {
+  string studentId = 1;
+  string amount = 2;
+  bool isAdd = 3; // "add" or "deduct"
+}
+
+message BalanceReply {
+	bool success = 1;
+	string message = 2;
+	string newBalance = 3;
+}
+
+message DeductBalanceRequest {
+  string studentId = 1;
+  string amount = 2;
+}
+
+message DeductBalanceReply {
+	bool success = 1;
+	string message = 2;
+	string newBalance = 3;
+}

@@ -1,0 +1,2 @@
+obj\Debug\net8.0\ServiceConnector\Protos/OTP.cs \
+obj\Debug\net8.0\ServiceConnector\Protos/OTPGrpc.cs: ServiceConnector/Protos/OTP.proto

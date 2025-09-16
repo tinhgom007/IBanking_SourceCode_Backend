@@ -1,0 +1,30 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "OTPGrpc";
+
+package OTP;
+
+service OtpGrpcService {
+	rpc GenerateOTP (GenerateOTPRequest) returns (GenerateOTPReply);
+	rpc ValidateOTP (ValidateOTPRequest) returns (ValidateOTPReply);
+}
+
+message GenerateOTPRequest {
+    string email = 1;
+}
+
+message GenerateOTPReply {
+    bool success = 1;
+	string message = 2;
+}
+
+message ValidateOTPRequest {
+	string email = 1;
+	string otp = 2;
+}
+
+message ValidateOTPReply {
+	bool IsValid = 1;
+	string message = 2;
+}
+

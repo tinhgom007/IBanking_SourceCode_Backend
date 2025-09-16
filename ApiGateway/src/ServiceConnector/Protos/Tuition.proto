@@ -1,0 +1,25 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "TuitionGrpc";
+
+package Tuition;
+
+service TuitionGrpcService {
+	rpc GetTuition (GetTuitionAsyncRequest) returns (GetTuitionAsyncReply);
+}
+
+message GetTuitionAsyncRequest {
+	string studentId = 1;
+}
+
+message TuitionItem {
+	string tuitionId = 1;
+	string amount = 2;
+	string dueDate = 3;
+	string status = 4;
+	string semester = 5;
+}
+
+message GetTuitionAsyncReply {
+	repeated TuitionItem tuitions = 1;
+}

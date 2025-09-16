@@ -1,0 +1,11 @@
+# Ignore Visual Studio temporary files
+.vs/
+*.user
+*.suo
+*.vscode/
+bin/
+obj/
+
+
+appsettings.json
+appsettings.Development.json

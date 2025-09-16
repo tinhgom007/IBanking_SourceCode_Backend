@@ -1,0 +1,2 @@
+obj\Debug\net8.0\ServiceConnector\Protos/Profile.cs \
+obj\Debug\net8.0\ServiceConnector\Protos/ProfileGrpc.cs: ServiceConnector/Protos/Profile.proto

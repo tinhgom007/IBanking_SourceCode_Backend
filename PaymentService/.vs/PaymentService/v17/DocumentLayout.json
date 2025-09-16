@@ -1,0 +1,161 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\work-space\\SOA\\test\\backend\\PaymentService\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{BEE28D1C-8C80-4612-AB1B-292F2DF67151}|src\\src.csproj|d:\\work-space\\soa\\test\\backend\\paymentservice\\src\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BEE28D1C-8C80-4612-AB1B-292F2DF67151}|src\\src.csproj|solutionrelative:src\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BEE28D1C-8C80-4612-AB1B-292F2DF67151}|src\\src.csproj|d:\\work-space\\soa\\test\\backend\\paymentservice\\src\\services\\paymentgrpcservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BEE28D1C-8C80-4612-AB1B-292F2DF67151}|src\\src.csproj|solutionrelative:src\\services\\paymentgrpcservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BEE28D1C-8C80-4612-AB1B-292F2DF67151}|src\\src.csproj|d:\\work-space\\soa\\test\\backend\\paymentservice\\src\\serviceconnector\\baseserviceconnector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BEE28D1C-8C80-4612-AB1B-292F2DF67151}|src\\src.csproj|solutionrelative:src\\serviceconnector\\baseserviceconnector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BEE28D1C-8C80-4612-AB1B-292F2DF67151}|src\\src.csproj|d:\\work-space\\soa\\test\\backend\\paymentservice\\src\\src.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{BEE28D1C-8C80-4612-AB1B-292F2DF67151}|src\\src.csproj|solutionrelative:src\\src.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BEE28D1C-8C80-4612-AB1B-292F2DF67151}|src\\src.csproj|d:\\work-space\\soa\\test\\backend\\paymentservice\\src\\serviceconnector\\otpserviceconnector\\otpserviceconnector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BEE28D1C-8C80-4612-AB1B-292F2DF67151}|src\\src.csproj|solutionrelative:src\\serviceconnector\\otpserviceconnector\\otpserviceconnector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BEE28D1C-8C80-4612-AB1B-292F2DF67151}|src\\src.csproj|d:\\work-space\\soa\\test\\backend\\paymentservice\\src\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{BEE28D1C-8C80-4612-AB1B-292F2DF67151}|src\\src.csproj|solutionrelative:src\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BEE28D1C-8C80-4612-AB1B-292F2DF67151}|src\\src.csproj|d:\\work-space\\soa\\test\\backend\\paymentservice\\src\\serviceconnector\\profileserviceconnector\\profileserviceconnector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BEE28D1C-8C80-4612-AB1B-292F2DF67151}|src\\src.csproj|solutionrelative:src\\serviceconnector\\profileserviceconnector\\profileserviceconnector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BEE28D1C-8C80-4612-AB1B-292F2DF67151}|src\\src.csproj|d:\\work-space\\soa\\test\\backend\\paymentservice\\src\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{BEE28D1C-8C80-4612-AB1B-292F2DF67151}|src\\src.csproj|solutionrelative:src\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "src.csproj",
+              "DocumentMoniker": "D:\\work-space\\SOA\\test\\backend\\PaymentService\\src\\src.csproj",
+              "RelativeDocumentMoniker": "src\\src.csproj",
+              "ToolTip": "D:\\work-space\\SOA\\test\\backend\\PaymentService\\src\\src.csproj",
+              "RelativeToolTip": "src\\src.csproj",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAACQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-09-16T08:35:28.906Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\work-space\\SOA\\test\\backend\\PaymentService\\src\\Program.cs",
+              "RelativeDocumentMoniker": "src\\Program.cs",
+              "ToolTip": "D:\\work-space\\SOA\\test\\backend\\PaymentService\\src\\Program.cs",
+              "RelativeToolTip": "src\\Program.cs",
+              "ViewState": "AgIAADYAAAAAAAAAAAAAAEYAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-16T07:30:48.398Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "BaseServiceConnector.cs",
+              "DocumentMoniker": "D:\\work-space\\SOA\\test\\backend\\PaymentService\\src\\ServiceConnector\\BaseServiceConnector.cs",
+              "RelativeDocumentMoniker": "src\\ServiceConnector\\BaseServiceConnector.cs",
+              "ToolTip": "D:\\work-space\\SOA\\test\\backend\\PaymentService\\src\\ServiceConnector\\BaseServiceConnector.cs",
+              "RelativeToolTip": "src\\ServiceConnector\\BaseServiceConnector.cs",
+              "ViewState": "AgIAACIAAAAAAAAAAADwvyoAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-16T07:23:10.556Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "D:\\work-space\\SOA\\test\\backend\\PaymentService\\src\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "src\\appsettings.Development.json",
+              "ToolTip": "D:\\work-space\\SOA\\test\\backend\\PaymentService\\src\\appsettings.Development.json",
+              "RelativeToolTip": "src\\appsettings.Development.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-09-16T07:18:00.266Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ProfileServiceConnector.cs",
+              "DocumentMoniker": "D:\\work-space\\SOA\\test\\backend\\PaymentService\\src\\ServiceConnector\\ProfileServiceConnector\\ProfileServiceConnector.cs",
+              "RelativeDocumentMoniker": "src\\ServiceConnector\\ProfileServiceConnector\\ProfileServiceConnector.cs",
+              "ToolTip": "D:\\work-space\\SOA\\test\\backend\\PaymentService\\src\\ServiceConnector\\ProfileServiceConnector\\ProfileServiceConnector.cs",
+              "RelativeToolTip": "src\\ServiceConnector\\ProfileServiceConnector\\ProfileServiceConnector.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAADgAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-16T07:10:06.613Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "OTPServiceConnector.cs",
+              "DocumentMoniker": "D:\\work-space\\SOA\\test\\backend\\PaymentService\\src\\ServiceConnector\\OTPServiceConnector\\OTPServiceConnector.cs",
+              "RelativeDocumentMoniker": "src\\ServiceConnector\\OTPServiceConnector\\OTPServiceConnector.cs",
+              "ToolTip": "D:\\work-space\\SOA\\test\\backend\\PaymentService\\src\\ServiceConnector\\OTPServiceConnector\\OTPServiceConnector.cs",
+              "RelativeToolTip": "src\\ServiceConnector\\OTPServiceConnector\\OTPServiceConnector.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-16T07:07:49.767Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "D:\\work-space\\SOA\\test\\backend\\PaymentService\\src\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "src\\Properties\\launchSettings.json",
+              "ToolTip": "D:\\work-space\\SOA\\test\\backend\\PaymentService\\src\\Properties\\launchSettings.json",
+              "RelativeToolTip": "src\\Properties\\launchSettings.json",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABYAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-09-16T07:06:23.566Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PaymentGrpcService.cs",
+              "DocumentMoniker": "D:\\work-space\\SOA\\test\\backend\\PaymentService\\src\\Services\\PaymentGrpcService.cs",
+              "RelativeDocumentMoniker": "src\\Services\\PaymentGrpcService.cs",
+              "ToolTip": "D:\\work-space\\SOA\\test\\backend\\PaymentService\\src\\Services\\PaymentGrpcService.cs",
+              "RelativeToolTip": "src\\Services\\PaymentGrpcService.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAzwDIAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-12T02:01:20.218Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

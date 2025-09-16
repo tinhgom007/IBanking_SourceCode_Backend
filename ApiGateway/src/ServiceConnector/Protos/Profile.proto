@@ -1,0 +1,21 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "ProfileGrpc";
+
+package Profile;
+
+service ProfileGrpcService {
+  rpc GetProfileById (GetProfileRequest) returns (GetProfileReply);
+}
+
+message GetProfileRequest {}
+
+message GetProfileReply {
+  string studentId = 1;
+  string fullName = 2;
+  string balance = 3;
+  string gender = 4;
+  string phoneNumber = 5;
+  string Email = 6;
+  string marjor = 7;
+}

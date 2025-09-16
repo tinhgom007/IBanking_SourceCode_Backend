@@ -1,0 +1,18 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "TuitionGrpc";
+
+package Tuition;
+
+service TuitionGrpcService {
+	rpc UpdateStatusTuition (UpdateStatusTuitionRequest) returns (UpdateStatusTuitionReply);
+}
+
+message UpdateStatusTuitionRequest {
+	string tuitionId = 1;
+}
+
+message UpdateStatusTuitionReply {
+	bool success = 1;
+	string message = 2;
+}

@@ -1,0 +1,5 @@
+//migration
+dotnet ef migrations add InitialCreate -o Data/Migrations
+
+//update database
+dotnet ef database update

@@ -1,0 +1,2 @@
+obj\Debug\net8.0\ServiceConnector\Protos/Tuition.cs \
+obj\Debug\net8.0\ServiceConnector\Protos/TuitionGrpc.cs: ServiceConnector/Protos/Tuition.proto

@@ -1,0 +1,50 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "PaymentGrpc";
+
+package Payment;
+
+service PaymentGrpcService {
+	rpc CreateTransaction (CreateTransactionRequest) returns (CreateTransactionReply);
+	rpc GetTransactionHistory (GetTransactionHistoryRequest) returns (GetTransactionHistoryReply);
+	rpc ConfirmTransaction (ConfirmTransactionRequest) returns (CreateTransactionReply);
+}
+
+message CreateTransactionRequest {	
+    string tuitionId = 1;
+    string studentId = 2;
+    string payerId = 3;
+    string amount = 4;
+}
+
+message CreateTransactionReply {
+	string PayerId = 1;
+	string StudentId = 2;
+	string amount = 3;
+	string status = 4;
+	string CreateAt = 5;
+}
+
+message GetTransactionHistoryRequest {
+	string studentId = 1;
+}
+
+message GetTransactionHistoryReply {
+	repeated Transaction transactions = 1;
+}
+
+message Transaction {
+	string paymentId = 1;
+	string studentId = 2;
+	string payerId = 3;
+	string amount = 4;
+	string status = 5;
+	string createAt = 6;
+	string updateAt = 7;
+}
+
+message ConfirmTransactionRequest {
+	string paymentId = 1;
+	string otp = 2;
+	string email = 3;
+}
