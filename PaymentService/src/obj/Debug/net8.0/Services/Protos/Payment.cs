@@ -24,32 +24,32 @@ namespace PaymentGrpc {
     static PaymentReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "Ch1TZXJ2aWNlcy9Qcm90b3MvUGF5bWVudC5wcm90bxIHUGF5bWVudCJhChhD",
+            "Ch1TZXJ2aWNlcy9Qcm90b3MvUGF5bWVudC5wcm90bxIHUGF5bWVudCJRChhD",
             "cmVhdGVUcmFuc2FjdGlvblJlcXVlc3QSEQoJdHVpdGlvbklkGAEgASgJEhEK",
-            "CXN0dWRlbnRJZBgCIAEoCRIPCgdwYXllcklkGAMgASgJEg4KBmFtb3VudBgE",
-            "IAEoCSJuChZDcmVhdGVUcmFuc2FjdGlvblJlcGx5Eg8KB1BheWVySWQYASAB",
-            "KAkSEQoJU3R1ZGVudElkGAIgASgJEg4KBmFtb3VudBgDIAEoCRIOCgZzdGF0",
-            "dXMYBCABKAkSEAoIQ3JlYXRlQXQYBSABKAkiMQocR2V0VHJhbnNhY3Rpb25I",
-            "aXN0b3J5UmVxdWVzdBIRCglzdHVkZW50SWQYASABKAkiSAoaR2V0VHJhbnNh",
-            "Y3Rpb25IaXN0b3J5UmVwbHkSKgoMdHJhbnNhY3Rpb25zGAEgAygLMhQuUGF5",
-            "bWVudC5UcmFuc2FjdGlvbiKIAQoLVHJhbnNhY3Rpb24SEQoJcGF5bWVudElk",
-            "GAEgASgJEhEKCXN0dWRlbnRJZBgCIAEoCRIPCgdwYXllcklkGAMgASgJEg4K",
-            "BmFtb3VudBgEIAEoCRIOCgZzdGF0dXMYBSABKAkSEAoIY3JlYXRlQXQYBiAB",
-            "KAkSEAoIdXBkYXRlQXQYByABKAkiSgoZQ29uZmlybVRyYW5zYWN0aW9uUmVx",
-            "dWVzdBIRCglwYXltZW50SWQYASABKAkSCwoDb3RwGAIgASgJEg0KBWVtYWls",
-            "GAMgASgJMq0CChJQYXltZW50R3JwY1NlcnZpY2USVwoRQ3JlYXRlVHJhbnNh",
-            "Y3Rpb24SIS5QYXltZW50LkNyZWF0ZVRyYW5zYWN0aW9uUmVxdWVzdBofLlBh",
-            "eW1lbnQuQ3JlYXRlVHJhbnNhY3Rpb25SZXBseRJjChVHZXRUcmFuc2FjdGlv",
-            "bkhpc3RvcnkSJS5QYXltZW50LkdldFRyYW5zYWN0aW9uSGlzdG9yeVJlcXVl",
-            "c3QaIy5QYXltZW50LkdldFRyYW5zYWN0aW9uSGlzdG9yeVJlcGx5ElkKEkNv",
-            "bmZpcm1UcmFuc2FjdGlvbhIiLlBheW1lbnQuQ29uZmlybVRyYW5zYWN0aW9u",
-            "UmVxdWVzdBofLlBheW1lbnQuQ3JlYXRlVHJhbnNhY3Rpb25SZXBseUIOqgIL",
-            "UGF5bWVudEdycGNiBnByb3RvMw=="));
+            "CXN0dWRlbnRJZBgCIAEoCRIPCgdwYXllcklkGAMgASgJIoEBChZDcmVhdGVU",
+            "cmFuc2FjdGlvblJlcGx5EhEKCXBheW1lbnRJZBgBIAEoCRIPCgdQYXllcklk",
+            "GAIgASgJEhEKCVN0dWRlbnRJZBgDIAEoCRIOCgZhbW91bnQYBCABKAkSDgoG",
+            "c3RhdHVzGAUgASgJEhAKCENyZWF0ZUF0GAYgASgJIjEKHEdldFRyYW5zYWN0",
+            "aW9uSGlzdG9yeVJlcXVlc3QSEQoJc3R1ZGVudElkGAEgASgJIkgKGkdldFRy",
+            "YW5zYWN0aW9uSGlzdG9yeVJlcGx5EioKDHRyYW5zYWN0aW9ucxgBIAMoCzIU",
+            "LlBheW1lbnQuVHJhbnNhY3Rpb24iiAEKC1RyYW5zYWN0aW9uEhEKCXBheW1l",
+            "bnRJZBgBIAEoCRIRCglzdHVkZW50SWQYAiABKAkSDwoHcGF5ZXJJZBgDIAEo",
+            "CRIOCgZhbW91bnQYBCABKAkSDgoGc3RhdHVzGAUgASgJEhAKCGNyZWF0ZUF0",
+            "GAYgASgJEhAKCHVwZGF0ZUF0GAcgASgJIkoKGUNvbmZpcm1UcmFuc2FjdGlv",
+            "blJlcXVlc3QSEQoJcGF5bWVudElkGAEgASgJEgsKA290cBgCIAEoCRINCgVl",
+            "bWFpbBgDIAEoCTKtAgoSUGF5bWVudEdycGNTZXJ2aWNlElcKEUNyZWF0ZVRy",
+            "YW5zYWN0aW9uEiEuUGF5bWVudC5DcmVhdGVUcmFuc2FjdGlvblJlcXVlc3Qa",
+            "Hy5QYXltZW50LkNyZWF0ZVRyYW5zYWN0aW9uUmVwbHkSYwoVR2V0VHJhbnNh",
+            "Y3Rpb25IaXN0b3J5EiUuUGF5bWVudC5HZXRUcmFuc2FjdGlvbkhpc3RvcnlS",
+            "ZXF1ZXN0GiMuUGF5bWVudC5HZXRUcmFuc2FjdGlvbkhpc3RvcnlSZXBseRJZ",
+            "ChJDb25maXJtVHJhbnNhY3Rpb24SIi5QYXltZW50LkNvbmZpcm1UcmFuc2Fj",
+            "dGlvblJlcXVlc3QaHy5QYXltZW50LkNyZWF0ZVRyYW5zYWN0aW9uUmVwbHlC",
+            "DqoCC1BheW1lbnRHcnBjYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::PaymentGrpc.CreateTransactionRequest), global::PaymentGrpc.CreateTransactionRequest.Parser, new[]{ "TuitionId", "StudentId", "PayerId", "Amount" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::PaymentGrpc.CreateTransactionReply), global::PaymentGrpc.CreateTransactionReply.Parser, new[]{ "PayerId", "StudentId", "Amount", "Status", "CreateAt" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::PaymentGrpc.CreateTransactionRequest), global::PaymentGrpc.CreateTransactionRequest.Parser, new[]{ "TuitionId", "StudentId", "PayerId" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::PaymentGrpc.CreateTransactionReply), global::PaymentGrpc.CreateTransactionReply.Parser, new[]{ "PaymentId", "PayerId", "StudentId", "Amount", "Status", "CreateAt" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::PaymentGrpc.GetTransactionHistoryRequest), global::PaymentGrpc.GetTransactionHistoryRequest.Parser, new[]{ "StudentId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::PaymentGrpc.GetTransactionHistoryReply), global::PaymentGrpc.GetTransactionHistoryReply.Parser, new[]{ "Transactions" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::PaymentGrpc.Transaction), global::PaymentGrpc.Transaction.Parser, new[]{ "PaymentId", "StudentId", "PayerId", "Amount", "Status", "CreateAt", "UpdateAt" }, null, null, null, null),
@@ -98,7 +98,6 @@ namespace PaymentGrpc {
       tuitionId_ = other.tuitionId_;
       studentId_ = other.studentId_;
       payerId_ = other.payerId_;
-      amount_ = other.amount_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -144,18 +143,6 @@ namespace PaymentGrpc {
       }
     }
 
-    /// <summary>Field number for the "amount" field.</summary>
-    public const int AmountFieldNumber = 4;
-    private string amount_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string Amount {
-      get { return amount_; }
-      set {
-        amount_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -174,7 +161,6 @@ namespace PaymentGrpc {
       if (TuitionId != other.TuitionId) return false;
       if (StudentId != other.StudentId) return false;
       if (PayerId != other.PayerId) return false;
-      if (Amount != other.Amount) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -185,7 +171,6 @@ namespace PaymentGrpc {
       if (TuitionId.Length != 0) hash ^= TuitionId.GetHashCode();
       if (StudentId.Length != 0) hash ^= StudentId.GetHashCode();
       if (PayerId.Length != 0) hash ^= PayerId.GetHashCode();
-      if (Amount.Length != 0) hash ^= Amount.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -216,10 +201,6 @@ namespace PaymentGrpc {
         output.WriteRawTag(26);
         output.WriteString(PayerId);
       }
-      if (Amount.Length != 0) {
-        output.WriteRawTag(34);
-        output.WriteString(Amount);
-      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -242,10 +223,6 @@ namespace PaymentGrpc {
         output.WriteRawTag(26);
         output.WriteString(PayerId);
       }
-      if (Amount.Length != 0) {
-        output.WriteRawTag(34);
-        output.WriteString(Amount);
-      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -264,9 +241,6 @@ namespace PaymentGrpc {
       }
       if (PayerId.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(PayerId);
-      }
-      if (Amount.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Amount);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -288,9 +262,6 @@ namespace PaymentGrpc {
       }
       if (other.PayerId.Length != 0) {
         PayerId = other.PayerId;
-      }
-      if (other.Amount.Length != 0) {
-        Amount = other.Amount;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -323,10 +294,6 @@ namespace PaymentGrpc {
             PayerId = input.ReadString();
             break;
           }
-          case 34: {
-            Amount = input.ReadString();
-            break;
-          }
         }
       }
     #endif
@@ -356,10 +323,6 @@ namespace PaymentGrpc {
           }
           case 26: {
             PayerId = input.ReadString();
-            break;
-          }
-          case 34: {
-            Amount = input.ReadString();
             break;
           }
         }
@@ -404,6 +367,7 @@ namespace PaymentGrpc {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public CreateTransactionReply(CreateTransactionReply other) : this() {
+      paymentId_ = other.paymentId_;
       payerId_ = other.payerId_;
       studentId_ = other.studentId_;
       amount_ = other.amount_;
@@ -418,8 +382,20 @@ namespace PaymentGrpc {
       return new CreateTransactionReply(this);
     }
 
+    /// <summary>Field number for the "paymentId" field.</summary>
+    public const int PaymentIdFieldNumber = 1;
+    private string paymentId_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string PaymentId {
+      get { return paymentId_; }
+      set {
+        paymentId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
     /// <summary>Field number for the "PayerId" field.</summary>
-    public const int PayerIdFieldNumber = 1;
+    public const int PayerIdFieldNumber = 2;
     private string payerId_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -431,7 +407,7 @@ namespace PaymentGrpc {
     }
 
     /// <summary>Field number for the "StudentId" field.</summary>
-    public const int StudentIdFieldNumber = 2;
+    public const int StudentIdFieldNumber = 3;
     private string studentId_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -443,7 +419,7 @@ namespace PaymentGrpc {
     }
 
     /// <summary>Field number for the "amount" field.</summary>
-    public const int AmountFieldNumber = 3;
+    public const int AmountFieldNumber = 4;
     private string amount_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -455,7 +431,7 @@ namespace PaymentGrpc {
     }
 
     /// <summary>Field number for the "status" field.</summary>
-    public const int StatusFieldNumber = 4;
+    public const int StatusFieldNumber = 5;
     private string status_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -467,7 +443,7 @@ namespace PaymentGrpc {
     }
 
     /// <summary>Field number for the "CreateAt" field.</summary>
-    public const int CreateAtFieldNumber = 5;
+    public const int CreateAtFieldNumber = 6;
     private string createAt_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -493,6 +469,7 @@ namespace PaymentGrpc {
       if (ReferenceEquals(other, this)) {
         return true;
       }
+      if (PaymentId != other.PaymentId) return false;
       if (PayerId != other.PayerId) return false;
       if (StudentId != other.StudentId) return false;
       if (Amount != other.Amount) return false;
@@ -505,6 +482,7 @@ namespace PaymentGrpc {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
+      if (PaymentId.Length != 0) hash ^= PaymentId.GetHashCode();
       if (PayerId.Length != 0) hash ^= PayerId.GetHashCode();
       if (StudentId.Length != 0) hash ^= StudentId.GetHashCode();
       if (Amount.Length != 0) hash ^= Amount.GetHashCode();
@@ -528,24 +506,28 @@ namespace PaymentGrpc {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (PayerId.Length != 0) {
+      if (PaymentId.Length != 0) {
         output.WriteRawTag(10);
+        output.WriteString(PaymentId);
+      }
+      if (PayerId.Length != 0) {
+        output.WriteRawTag(18);
         output.WriteString(PayerId);
       }
       if (StudentId.Length != 0) {
-        output.WriteRawTag(18);
+        output.WriteRawTag(26);
         output.WriteString(StudentId);
       }
       if (Amount.Length != 0) {
-        output.WriteRawTag(26);
+        output.WriteRawTag(34);
         output.WriteString(Amount);
       }
       if (Status.Length != 0) {
-        output.WriteRawTag(34);
+        output.WriteRawTag(42);
         output.WriteString(Status);
       }
       if (CreateAt.Length != 0) {
-        output.WriteRawTag(42);
+        output.WriteRawTag(50);
         output.WriteString(CreateAt);
       }
       if (_unknownFields != null) {
@@ -558,24 +540,28 @@ namespace PaymentGrpc {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (PayerId.Length != 0) {
+      if (PaymentId.Length != 0) {
         output.WriteRawTag(10);
+        output.WriteString(PaymentId);
+      }
+      if (PayerId.Length != 0) {
+        output.WriteRawTag(18);
         output.WriteString(PayerId);
       }
       if (StudentId.Length != 0) {
-        output.WriteRawTag(18);
+        output.WriteRawTag(26);
         output.WriteString(StudentId);
       }
       if (Amount.Length != 0) {
-        output.WriteRawTag(26);
+        output.WriteRawTag(34);
         output.WriteString(Amount);
       }
       if (Status.Length != 0) {
-        output.WriteRawTag(34);
+        output.WriteRawTag(42);
         output.WriteString(Status);
       }
       if (CreateAt.Length != 0) {
-        output.WriteRawTag(42);
+        output.WriteRawTag(50);
         output.WriteString(CreateAt);
       }
       if (_unknownFields != null) {
@@ -588,6 +574,9 @@ namespace PaymentGrpc {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
+      if (PaymentId.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(PaymentId);
+      }
       if (PayerId.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(PayerId);
       }
@@ -614,6 +603,9 @@ namespace PaymentGrpc {
     public void MergeFrom(CreateTransactionReply other) {
       if (other == null) {
         return;
+      }
+      if (other.PaymentId.Length != 0) {
+        PaymentId = other.PaymentId;
       }
       if (other.PayerId.Length != 0) {
         PayerId = other.PayerId;
@@ -650,22 +642,26 @@ namespace PaymentGrpc {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 10: {
-            PayerId = input.ReadString();
+            PaymentId = input.ReadString();
             break;
           }
           case 18: {
-            StudentId = input.ReadString();
+            PayerId = input.ReadString();
             break;
           }
           case 26: {
-            Amount = input.ReadString();
+            StudentId = input.ReadString();
             break;
           }
           case 34: {
-            Status = input.ReadString();
+            Amount = input.ReadString();
             break;
           }
           case 42: {
+            Status = input.ReadString();
+            break;
+          }
+          case 50: {
             CreateAt = input.ReadString();
             break;
           }
@@ -689,22 +685,26 @@ namespace PaymentGrpc {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 10: {
-            PayerId = input.ReadString();
+            PaymentId = input.ReadString();
             break;
           }
           case 18: {
-            StudentId = input.ReadString();
+            PayerId = input.ReadString();
             break;
           }
           case 26: {
-            Amount = input.ReadString();
+            StudentId = input.ReadString();
             break;
           }
           case 34: {
-            Status = input.ReadString();
+            Amount = input.ReadString();
             break;
           }
           case 42: {
+            Status = input.ReadString();
+            break;
+          }
+          case 50: {
             CreateAt = input.ReadString();
             break;
           }

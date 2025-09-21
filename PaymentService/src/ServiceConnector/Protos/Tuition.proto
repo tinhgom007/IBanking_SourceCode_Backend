@@ -5,11 +5,20 @@ option csharp_namespace = "TuitionGrpc";
 package Tuition;
 
 service TuitionGrpcService {
-	rpc UpdateStatusTuition (UpdateStatusTuitionRequest) returns (UpdateStatusTuitionReply);
+	rpc GetTuitionById (GetTuitionByIdRequest) returns (TuitionItem);
+	rpc UpdateStatusTuition (GetTuitionByIdRequest) returns (UpdateStatusTuitionReply);
 }
 
-message UpdateStatusTuitionRequest {
+message GetTuitionByIdRequest {
 	string tuitionId = 1;
+}
+
+message TuitionItem {
+	string tuitionId = 1;
+	string amount = 2;
+	string dueDate = 3;
+	string status = 4;
+	string semester = 5;
 }
 
 message UpdateStatusTuitionReply {

@@ -14,15 +14,15 @@ message CreateTransactionRequest {
     string tuitionId = 1;
     string studentId = 2;
     string payerId = 3;
-    string amount = 4;
 }
 
 message CreateTransactionReply {
-	string PayerId = 1;
-	string StudentId = 2;
-	string amount = 3;
-	string status = 4;
-	string CreateAt = 5;
+	string paymentId = 1;
+	string PayerId = 2;
+	string StudentId = 3;
+	string amount = 4;
+	string status = 5;
+	string CreateAt = 6;
 }
 
 message GetTransactionHistoryRequest {

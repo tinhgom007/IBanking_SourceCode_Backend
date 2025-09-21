@@ -25,19 +25,24 @@ namespace OTPGrpc {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "CiFTZXJ2aWNlQ29ubmVjdG9yL1Byb3Rvcy9PVFAucHJvdG8SA09UUCIjChJH",
-            "ZW5lcmF0ZU9UUFJlcXVlc3QSDQoFZW1haWwYASABKAkiNAoQR2VuZXJhdGVP",
-            "VFBSZXBseRIPCgdzdWNjZXNzGAEgASgIEg8KB21lc3NhZ2UYAiABKAkiMAoS",
-            "VmFsaWRhdGVPVFBSZXF1ZXN0Eg0KBWVtYWlsGAEgASgJEgsKA290cBgCIAEo",
-            "CSI0ChBWYWxpZGF0ZU9UUFJlcGx5Eg8KB0lzVmFsaWQYASABKAgSDwoHbWVz",
-            "c2FnZRgCIAEoCTKOAQoOT3RwR3JwY1NlcnZpY2USPQoLR2VuZXJhdGVPVFAS",
-            "Fy5PVFAuR2VuZXJhdGVPVFBSZXF1ZXN0GhUuT1RQLkdlbmVyYXRlT1RQUmVw",
-            "bHkSPQoLVmFsaWRhdGVPVFASFy5PVFAuVmFsaWRhdGVPVFBSZXF1ZXN0GhUu",
-            "T1RQLlZhbGlkYXRlT1RQUmVwbHlCCqoCB09UUEdycGNiBnByb3RvMw=="));
+            "ZW5lcmF0ZU9UUFJlcXVlc3QSDQoFZW1haWwYASABKAkiPwoeU2VuZEVtYWls",
+            "UGF5bWVudFN1Y2Nlc3NSZXF1ZXN0Eg0KBWVtYWlsGAEgASgJEg4KBmFtb3Vu",
+            "dBgCIAEoCSIyCg5TZW5kRW1haWxSZXBseRIPCgdzdWNjZXNzGAEgASgIEg8K",
+            "B21lc3NhZ2UYAiABKAkiMAoSVmFsaWRhdGVPVFBSZXF1ZXN0Eg0KBWVtYWls",
+            "GAEgASgJEgsKA290cBgCIAEoCSI0ChBWYWxpZGF0ZU9UUFJlcGx5Eg8KB0lz",
+            "VmFsaWQYASABKAgSDwoHbWVzc2FnZRgCIAEoCTLhAQoOT3RwR3JwY1NlcnZp",
+            "Y2USOwoLR2VuZXJhdGVPVFASFy5PVFAuR2VuZXJhdGVPVFBSZXF1ZXN0GhMu",
+            "T1RQLlNlbmRFbWFpbFJlcGx5ElMKF1NlbmRFbWFpbFBheW1lbnRTdWNjZXNz",
+            "EiMuT1RQLlNlbmRFbWFpbFBheW1lbnRTdWNjZXNzUmVxdWVzdBoTLk9UUC5T",
+            "ZW5kRW1haWxSZXBseRI9CgtWYWxpZGF0ZU9UUBIXLk9UUC5WYWxpZGF0ZU9U",
+            "UFJlcXVlc3QaFS5PVFAuVmFsaWRhdGVPVFBSZXBseUIKqgIHT1RQR3JwY2IG",
+            "cHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::OTPGrpc.GenerateOTPRequest), global::OTPGrpc.GenerateOTPRequest.Parser, new[]{ "Email" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::OTPGrpc.GenerateOTPReply), global::OTPGrpc.GenerateOTPReply.Parser, new[]{ "Success", "Message" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::OTPGrpc.SendEmailPaymentSuccessRequest), global::OTPGrpc.SendEmailPaymentSuccessRequest.Parser, new[]{ "Email", "Amount" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::OTPGrpc.SendEmailReply), global::OTPGrpc.SendEmailReply.Parser, new[]{ "Success", "Message" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OTPGrpc.ValidateOTPRequest), global::OTPGrpc.ValidateOTPRequest.Parser, new[]{ "Email", "Otp" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OTPGrpc.ValidateOTPReply), global::OTPGrpc.ValidateOTPReply.Parser, new[]{ "IsValid", "Message" }, null, null, null, null)
           }));
@@ -245,16 +250,16 @@ namespace OTPGrpc {
   }
 
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
-  public sealed partial class GenerateOTPReply : pb::IMessage<GenerateOTPReply>
+  public sealed partial class SendEmailPaymentSuccessRequest : pb::IMessage<SendEmailPaymentSuccessRequest>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<GenerateOTPReply> _parser = new pb::MessageParser<GenerateOTPReply>(() => new GenerateOTPReply());
+    private static readonly pb::MessageParser<SendEmailPaymentSuccessRequest> _parser = new pb::MessageParser<SendEmailPaymentSuccessRequest>(() => new SendEmailPaymentSuccessRequest());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<GenerateOTPReply> Parser { get { return _parser; } }
+    public static pb::MessageParser<SendEmailPaymentSuccessRequest> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -270,7 +275,7 @@ namespace OTPGrpc {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public GenerateOTPReply() {
+    public SendEmailPaymentSuccessRequest() {
       OnConstruction();
     }
 
@@ -278,7 +283,242 @@ namespace OTPGrpc {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public GenerateOTPReply(GenerateOTPReply other) : this() {
+    public SendEmailPaymentSuccessRequest(SendEmailPaymentSuccessRequest other) : this() {
+      email_ = other.email_;
+      amount_ = other.amount_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SendEmailPaymentSuccessRequest Clone() {
+      return new SendEmailPaymentSuccessRequest(this);
+    }
+
+    /// <summary>Field number for the "email" field.</summary>
+    public const int EmailFieldNumber = 1;
+    private string email_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Email {
+      get { return email_; }
+      set {
+        email_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "amount" field.</summary>
+    public const int AmountFieldNumber = 2;
+    private string amount_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Amount {
+      get { return amount_; }
+      set {
+        amount_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as SendEmailPaymentSuccessRequest);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(SendEmailPaymentSuccessRequest other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Email != other.Email) return false;
+      if (Amount != other.Amount) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Email.Length != 0) hash ^= Email.GetHashCode();
+      if (Amount.Length != 0) hash ^= Amount.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (Email.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(Email);
+      }
+      if (Amount.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(Amount);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Email.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(Email);
+      }
+      if (Amount.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(Amount);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (Email.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Email);
+      }
+      if (Amount.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Amount);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(SendEmailPaymentSuccessRequest other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Email.Length != 0) {
+        Email = other.Email;
+      }
+      if (other.Amount.Length != 0) {
+        Amount = other.Amount;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            Email = input.ReadString();
+            break;
+          }
+          case 18: {
+            Amount = input.ReadString();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            Email = input.ReadString();
+            break;
+          }
+          case 18: {
+            Amount = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
+  public sealed partial class SendEmailReply : pb::IMessage<SendEmailReply>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<SendEmailReply> _parser = new pb::MessageParser<SendEmailReply>(() => new SendEmailReply());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<SendEmailReply> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::OTPGrpc.OTPReflection.Descriptor.MessageTypes[2]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SendEmailReply() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SendEmailReply(SendEmailReply other) : this() {
       success_ = other.success_;
       message_ = other.message_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
@@ -286,8 +526,8 @@ namespace OTPGrpc {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public GenerateOTPReply Clone() {
-      return new GenerateOTPReply(this);
+    public SendEmailReply Clone() {
+      return new SendEmailReply(this);
     }
 
     /// <summary>Field number for the "success" field.</summary>
@@ -317,12 +557,12 @@ namespace OTPGrpc {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
-      return Equals(other as GenerateOTPReply);
+      return Equals(other as SendEmailReply);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(GenerateOTPReply other) {
+    public bool Equals(SendEmailReply other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
@@ -408,7 +648,7 @@ namespace OTPGrpc {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(GenerateOTPReply other) {
+    public void MergeFrom(SendEmailReply other) {
       if (other == null) {
         return;
       }
@@ -494,7 +734,7 @@ namespace OTPGrpc {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OTPGrpc.OTPReflection.Descriptor.MessageTypes[2]; }
+      get { return global::OTPGrpc.OTPReflection.Descriptor.MessageTypes[3]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -729,7 +969,7 @@ namespace OTPGrpc {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OTPGrpc.OTPReflection.Descriptor.MessageTypes[3]; }
+      get { return global::OTPGrpc.OTPReflection.Descriptor.MessageTypes[4]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

@@ -46,16 +46,26 @@ namespace TuitionGrpc {
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::TuitionGrpc.UpdateStatusTuitionRequest> __Marshaller_Tuition_UpdateStatusTuitionRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::TuitionGrpc.UpdateStatusTuitionRequest.Parser));
+    static readonly grpc::Marshaller<global::TuitionGrpc.GetTuitionByIdRequest> __Marshaller_Tuition_GetTuitionByIdRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::TuitionGrpc.GetTuitionByIdRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::TuitionGrpc.TuitionItem> __Marshaller_Tuition_TuitionItem = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::TuitionGrpc.TuitionItem.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::TuitionGrpc.UpdateStatusTuitionReply> __Marshaller_Tuition_UpdateStatusTuitionReply = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::TuitionGrpc.UpdateStatusTuitionReply.Parser));
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Method<global::TuitionGrpc.UpdateStatusTuitionRequest, global::TuitionGrpc.UpdateStatusTuitionReply> __Method_UpdateStatusTuition = new grpc::Method<global::TuitionGrpc.UpdateStatusTuitionRequest, global::TuitionGrpc.UpdateStatusTuitionReply>(
+    static readonly grpc::Method<global::TuitionGrpc.GetTuitionByIdRequest, global::TuitionGrpc.TuitionItem> __Method_GetTuitionById = new grpc::Method<global::TuitionGrpc.GetTuitionByIdRequest, global::TuitionGrpc.TuitionItem>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "GetTuitionById",
+        __Marshaller_Tuition_GetTuitionByIdRequest,
+        __Marshaller_Tuition_TuitionItem);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::TuitionGrpc.GetTuitionByIdRequest, global::TuitionGrpc.UpdateStatusTuitionReply> __Method_UpdateStatusTuition = new grpc::Method<global::TuitionGrpc.GetTuitionByIdRequest, global::TuitionGrpc.UpdateStatusTuitionReply>(
         grpc::MethodType.Unary,
         __ServiceName,
         "UpdateStatusTuition",
-        __Marshaller_Tuition_UpdateStatusTuitionRequest,
+        __Marshaller_Tuition_GetTuitionByIdRequest,
         __Marshaller_Tuition_UpdateStatusTuitionReply);
 
     /// <summary>Service descriptor</summary>
@@ -92,22 +102,42 @@ namespace TuitionGrpc {
       }
 
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::TuitionGrpc.UpdateStatusTuitionReply UpdateStatusTuition(global::TuitionGrpc.UpdateStatusTuitionRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual global::TuitionGrpc.TuitionItem GetTuitionById(global::TuitionGrpc.GetTuitionByIdRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return GetTuitionById(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::TuitionGrpc.TuitionItem GetTuitionById(global::TuitionGrpc.GetTuitionByIdRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_GetTuitionById, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::TuitionGrpc.TuitionItem> GetTuitionByIdAsync(global::TuitionGrpc.GetTuitionByIdRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return GetTuitionByIdAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::TuitionGrpc.TuitionItem> GetTuitionByIdAsync(global::TuitionGrpc.GetTuitionByIdRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_GetTuitionById, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::TuitionGrpc.UpdateStatusTuitionReply UpdateStatusTuition(global::TuitionGrpc.GetTuitionByIdRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return UpdateStatusTuition(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::TuitionGrpc.UpdateStatusTuitionReply UpdateStatusTuition(global::TuitionGrpc.UpdateStatusTuitionRequest request, grpc::CallOptions options)
+      public virtual global::TuitionGrpc.UpdateStatusTuitionReply UpdateStatusTuition(global::TuitionGrpc.GetTuitionByIdRequest request, grpc::CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_UpdateStatusTuition, null, options, request);
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::TuitionGrpc.UpdateStatusTuitionReply> UpdateStatusTuitionAsync(global::TuitionGrpc.UpdateStatusTuitionRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncUnaryCall<global::TuitionGrpc.UpdateStatusTuitionReply> UpdateStatusTuitionAsync(global::TuitionGrpc.GetTuitionByIdRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return UpdateStatusTuitionAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::TuitionGrpc.UpdateStatusTuitionReply> UpdateStatusTuitionAsync(global::TuitionGrpc.UpdateStatusTuitionRequest request, grpc::CallOptions options)
+      public virtual grpc::AsyncUnaryCall<global::TuitionGrpc.UpdateStatusTuitionReply> UpdateStatusTuitionAsync(global::TuitionGrpc.GetTuitionByIdRequest request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_UpdateStatusTuition, null, options, request);
       }

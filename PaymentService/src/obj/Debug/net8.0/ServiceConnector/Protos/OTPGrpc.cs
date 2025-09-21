@@ -48,19 +48,29 @@ namespace OTPGrpc {
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::OTPGrpc.GenerateOTPRequest> __Marshaller_OTP_GenerateOTPRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::OTPGrpc.GenerateOTPRequest.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::OTPGrpc.GenerateOTPReply> __Marshaller_OTP_GenerateOTPReply = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::OTPGrpc.GenerateOTPReply.Parser));
+    static readonly grpc::Marshaller<global::OTPGrpc.SendEmailReply> __Marshaller_OTP_SendEmailReply = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::OTPGrpc.SendEmailReply.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::OTPGrpc.SendEmailPaymentSuccessRequest> __Marshaller_OTP_SendEmailPaymentSuccessRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::OTPGrpc.SendEmailPaymentSuccessRequest.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::OTPGrpc.ValidateOTPRequest> __Marshaller_OTP_ValidateOTPRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::OTPGrpc.ValidateOTPRequest.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::OTPGrpc.ValidateOTPReply> __Marshaller_OTP_ValidateOTPReply = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::OTPGrpc.ValidateOTPReply.Parser));
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Method<global::OTPGrpc.GenerateOTPRequest, global::OTPGrpc.GenerateOTPReply> __Method_GenerateOTP = new grpc::Method<global::OTPGrpc.GenerateOTPRequest, global::OTPGrpc.GenerateOTPReply>(
+    static readonly grpc::Method<global::OTPGrpc.GenerateOTPRequest, global::OTPGrpc.SendEmailReply> __Method_GenerateOTP = new grpc::Method<global::OTPGrpc.GenerateOTPRequest, global::OTPGrpc.SendEmailReply>(
         grpc::MethodType.Unary,
         __ServiceName,
         "GenerateOTP",
         __Marshaller_OTP_GenerateOTPRequest,
-        __Marshaller_OTP_GenerateOTPReply);
+        __Marshaller_OTP_SendEmailReply);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::OTPGrpc.SendEmailPaymentSuccessRequest, global::OTPGrpc.SendEmailReply> __Method_SendEmailPaymentSuccess = new grpc::Method<global::OTPGrpc.SendEmailPaymentSuccessRequest, global::OTPGrpc.SendEmailReply>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "SendEmailPaymentSuccess",
+        __Marshaller_OTP_SendEmailPaymentSuccessRequest,
+        __Marshaller_OTP_SendEmailReply);
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Method<global::OTPGrpc.ValidateOTPRequest, global::OTPGrpc.ValidateOTPReply> __Method_ValidateOTP = new grpc::Method<global::OTPGrpc.ValidateOTPRequest, global::OTPGrpc.ValidateOTPReply>(
@@ -104,24 +114,44 @@ namespace OTPGrpc {
       }
 
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::OTPGrpc.GenerateOTPReply GenerateOTP(global::OTPGrpc.GenerateOTPRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual global::OTPGrpc.SendEmailReply GenerateOTP(global::OTPGrpc.GenerateOTPRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return GenerateOTP(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::OTPGrpc.GenerateOTPReply GenerateOTP(global::OTPGrpc.GenerateOTPRequest request, grpc::CallOptions options)
+      public virtual global::OTPGrpc.SendEmailReply GenerateOTP(global::OTPGrpc.GenerateOTPRequest request, grpc::CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_GenerateOTP, null, options, request);
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::OTPGrpc.GenerateOTPReply> GenerateOTPAsync(global::OTPGrpc.GenerateOTPRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncUnaryCall<global::OTPGrpc.SendEmailReply> GenerateOTPAsync(global::OTPGrpc.GenerateOTPRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return GenerateOTPAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::OTPGrpc.GenerateOTPReply> GenerateOTPAsync(global::OTPGrpc.GenerateOTPRequest request, grpc::CallOptions options)
+      public virtual grpc::AsyncUnaryCall<global::OTPGrpc.SendEmailReply> GenerateOTPAsync(global::OTPGrpc.GenerateOTPRequest request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_GenerateOTP, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::OTPGrpc.SendEmailReply SendEmailPaymentSuccess(global::OTPGrpc.SendEmailPaymentSuccessRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return SendEmailPaymentSuccess(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::OTPGrpc.SendEmailReply SendEmailPaymentSuccess(global::OTPGrpc.SendEmailPaymentSuccessRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_SendEmailPaymentSuccess, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::OTPGrpc.SendEmailReply> SendEmailPaymentSuccessAsync(global::OTPGrpc.SendEmailPaymentSuccessRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return SendEmailPaymentSuccessAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::OTPGrpc.SendEmailReply> SendEmailPaymentSuccessAsync(global::OTPGrpc.SendEmailPaymentSuccessRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_SendEmailPaymentSuccess, null, options, request);
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual global::OTPGrpc.ValidateOTPReply ValidateOTP(global::OTPGrpc.ValidateOTPRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))

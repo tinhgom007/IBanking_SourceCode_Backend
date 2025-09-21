@@ -36,5 +36,17 @@ namespace src.ServiceConnector.AuthServiceConnector
 
             return await client.RefreshTokenAsync(request);
         }
+
+        public async Task<SignOutResponseReply> SignOut()
+        {
+            using var channel = GetAuthServiceChannel();
+            var client = new AuthenticationGrpcService.AuthenticationGrpcServiceClient(channel);
+
+            var request = new SignOutRequest
+            {
+            };
+
+            return await client.SignOutAsync(request);
+        }
     }
 }

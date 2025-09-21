@@ -18,12 +18,24 @@ namespace src.ServiceConnector.TuitionServiceConnector
         {
             using var channel = GetTuitionGrpcChannel();
             var client = new TuitionGrpcService.TuitionGrpcServiceClient(channel);
-            var request = new UpdateStatusTuitionRequest
+            var request = new GetTuitionByIdRequest
             {
                 TuitionId = tuitionId
             };
             
             return await client.UpdateStatusTuitionAsync(request);
+        }
+
+        public async Task<TuitionItem> GetTuitionById(string tuitionId)
+        {
+            using var channel = GetTuitionGrpcChannel();
+            var client = new TuitionGrpcService.TuitionGrpcServiceClient(channel);
+            var request = new GetTuitionByIdRequest
+            {
+                TuitionId = tuitionId
+            };
+
+            return await client.GetTuitionByIdAsync(request);
         }
     }
 }

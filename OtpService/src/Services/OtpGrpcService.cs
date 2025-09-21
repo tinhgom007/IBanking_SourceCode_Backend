@@ -22,7 +22,7 @@ namespace src.Services
             _otpService = otpService ?? throw new ArgumentNullException(nameof(otpService));
         }
 
-        public override async Task<GenerateOTPReply> GenerateOTP(GenerateOTPRequest request, ServerCallContext context)
+        public override async Task<SendEmailReply> GenerateOTP(GenerateOTPRequest request, ServerCallContext context)
         {
             if (string.IsNullOrEmpty(request.Email))
             {
@@ -38,10 +38,10 @@ namespace src.Services
 
             if (!result)
             {
-                return new GenerateOTPReply { Success = false, Message = "Failed to generate OTP." };
+                return new SendEmailReply { Success = false, Message = "Failed to generate OTP." };
             }
 
-            return new GenerateOTPReply { Success = true, Message = "OTP generated successfully." };
+            return new SendEmailReply { Success = true, Message = "OTP generated successfully." };
         }
 
         public override async Task<ValidateOTPReply> ValidateOTP(ValidateOTPRequest request, ServerCallContext context)
@@ -53,6 +53,24 @@ namespace src.Services
 
             var isValid = await _otpService.ValidateOtpAsync(request.Email, request.Otp);
             return new ValidateOTPReply { IsValid = isValid, Message = isValid ? "OTP is valid." : "OTP is invalid." };
+        }
+
+        public override async Task<SendEmailReply> SendEmailPaymentSuccess(SendEmailPaymentSuccessRequest request, ServerCallContext context)
+        {
+            if (string.IsNullOrEmpty(request.Email))
+            {
+                throw new RpcException(new Status(StatusCode.InvalidArgument, "Email is required."));
+            }
+
+            string httpContent = PaymentSuccessTemplate.Generate(request.Amount);
+            var result = await _mailer.SendMail(request.Email, "Payment Successfully", httpContent);
+
+            if (!result)
+            {
+                return new SendEmailReply { Success = false, Message = "Failed to send mail." };
+            }
+
+            return new SendEmailReply { Success = true, Message = "Send Email successfully." };
         }
 
         private string GenerateRandomOtp(int length)

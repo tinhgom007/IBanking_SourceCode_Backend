@@ -6,6 +6,7 @@ package Authentication;
 
 service AuthenticationGrpcService {
   rpc Login (LoginRequest) returns (TokenResponseReply);
+  rpc SignOut(SignOutRequest) returns (SignOutResponseReply);
   rpc RefreshToken (RefreshTokenRequest) returns (TokenResponseReply);
 }
 
@@ -21,4 +22,11 @@ message RefreshTokenRequest {
 message TokenResponseReply {
   string accessToken = 1;
   string refreshToken = 2;
+}
+
+message SignOutResponseReply {
+  bool isSuccess = 1;
+}
+
+message SignOutRequest {
 }

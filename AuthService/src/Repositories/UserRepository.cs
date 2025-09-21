@@ -14,9 +14,11 @@ namespace src.Repositories
             _context = context;
         }
 
-        public Task<User> CreateNewStudent(User user)
+        public async Task<User> CreateStudent(User user)
         {
-            throw new NotImplementedException();
+            await _context.Users.AddAsync(user);
+            await _context.SaveChangesAsync();
+            return user;
         }
 
         public async Task<User> FindUserById(Guid userId)
@@ -32,6 +34,26 @@ namespace src.Repositories
         public async Task<IEnumerable<User>> GetAllUsers()
         {
             return await _context.Users.ToListAsync();
+        }
+
+        public async Task UpdateFailedLoginCount(Guid userId, bool isCount)
+        {
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.UserId == userId);
+            if (isCount) { 
+                user.FailedLoginCount += 1;
+                user.LastFailedLoginAt = DateTime.UtcNow;
+
+                if (user.FailedLoginCount >= 5)
+                {
+                    user.IsLocked = true;
+                }
+            }
+            else
+            {
+                user.FailedLoginCount = 0;
+                user.LastFailedLoginAt = null;
+            }
+            await _context.SaveChangesAsync();
         }
     }
 }

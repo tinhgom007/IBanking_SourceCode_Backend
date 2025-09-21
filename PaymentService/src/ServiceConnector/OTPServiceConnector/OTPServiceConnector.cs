@@ -14,7 +14,7 @@ namespace src.ServiceConnector.OTPServiceConnector
             _httpContextAccessor = httpContextAccessor;
         }
 
-        public async Task<GenerateOTPReply> GenerateOTP(string email)
+        public async Task<SendEmailReply> GenerateOTP(string email)
         {
             using var channel = GetOTPServiceChannel();
             var client = new OtpGrpcService.OtpGrpcServiceClient(channel);
@@ -37,6 +37,20 @@ namespace src.ServiceConnector.OTPServiceConnector
             };
 
             return await client.ValidateOTPAsync(request);
+        }
+
+        public async Task<SendEmailReply> SendEmailPaymentSuccess(string email, string amount)
+        {
+            using var channel = GetOTPServiceChannel();
+            var client = new OtpGrpcService.OtpGrpcServiceClient(channel);
+
+            var request = new SendEmailPaymentSuccessRequest
+            {
+                Email = email,
+                Amount = amount
+            };
+
+            return await client.SendEmailPaymentSuccessAsync(request);
         }
     }
 }

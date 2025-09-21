@@ -32,22 +32,23 @@ namespace src.Services
         public override async Task<CreateTransactionReply> CreateTransaction(CreateTransactionRequest request, ServerCallContext context)
         {
             var getProfile = await _profileConnector.GetProfileAsync();
-            var balance = decimal.Parse(getProfile.Balance);
+            var tuition = await _tuitionServiceConnector.GetTuitionById(request.TuitionId);
 
-            if (balance < decimal.Parse(request.Amount))
+            if (decimal.Parse(getProfile.Balance) < decimal.Parse(tuition.Amount))
             {
                 throw new RpcException(new Status(StatusCode.NotFound, "Insufficient balance"));
             }
 
             await _otpConnector.GenerateOTP(getProfile.Email);
 
+            Guid paymentId = Guid.NewGuid();
             await _paymentRepository.CreateTransaction(new Payment
             {
-                PaymentId = Guid.NewGuid(),
+                PaymentId = paymentId,
                 TuitionId = Guid.Parse(request.TuitionId),
                 StudentId = request.StudentId,
                 PayerId = request.PayerId,
-                Amount = decimal.Parse(request.Amount),
+                Amount = decimal.Parse(tuition.Amount),
                 Status = "pending",
                 CreateAt = DateTime.UtcNow,
                 UpdateAt = DateTime.UtcNow
@@ -55,9 +56,10 @@ namespace src.Services
 
             return new CreateTransactionReply
             {
+                PaymentId = paymentId.ToString(),
                 PayerId = request.PayerId,
                 StudentId = request.StudentId,
-                Amount = request.Amount,
+                Amount = tuition.Amount,
                 Status = "pending",
                 CreateAt = DateTime.UtcNow.ToString("o")
             };
@@ -102,6 +104,7 @@ namespace src.Services
                 transaction.Status = "Success";
                 transaction.UpdateAt = DateTime.UtcNow;
                 await _paymentRepository.UpdateTransaction(transaction);
+                await _otpConnector.SendEmailPaymentSuccess(request.Email, transaction.Amount.ToString());
 
                 return new CreateTransactionReply
                 {

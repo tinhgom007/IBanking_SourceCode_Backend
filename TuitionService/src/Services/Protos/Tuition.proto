@@ -6,7 +6,8 @@ package Tuition;
 
 service TuitionGrpcService {
 	rpc GetTuition (GetTuitionAsyncRequest) returns (GetTuitionAsyncReply);
-	rpc UpdateStatusTuition (UpdateStatusTuitionRequest) returns (UpdateStatusTuitionReply);
+	rpc GetTuitionById (GetTuitionByIdRequest) returns (TuitionItem);
+	rpc UpdateStatusTuition (GetTuitionByIdRequest) returns (UpdateStatusTuitionReply);
 }
 
 message GetTuitionAsyncRequest {
@@ -21,12 +22,12 @@ message TuitionItem {
 	string semester = 5;
 }
 
-message GetTuitionAsyncReply {
-	repeated TuitionItem tuitions = 1;
+message GetTuitionByIdRequest {
+	string tuitionId = 1;
 }
 
-message UpdateStatusTuitionRequest {
-	string tuitionId = 1;
+message GetTuitionAsyncReply {
+	repeated TuitionItem tuitions = 1;
 }
 
 message UpdateStatusTuitionReply {

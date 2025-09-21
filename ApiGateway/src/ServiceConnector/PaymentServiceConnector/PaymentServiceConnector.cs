@@ -25,7 +25,7 @@ namespace src.ServiceConnector.PaymentServiceConnector
             return await client.GetTransactionHistoryAsync(request, headers);
         }   
 
-        public async Task<CreateTransactionReply> CreateTransaction(string tuitionId, string studentId, string payerId, string amount, string accessToken)
+        public async Task<CreateTransactionReply> CreateTransaction(string tuitionId, string studentId, string payerId, string accessToken)
         {
             using var channel = GetPaymentServiceChannel();
             var client = new PaymentGrpcService.PaymentGrpcServiceClient(channel);
@@ -35,7 +35,6 @@ namespace src.ServiceConnector.PaymentServiceConnector
                 TuitionId = tuitionId,
                 StudentId = studentId,
                 PayerId = payerId,
-                Amount = amount
             };
 
             var headers = new Metadata

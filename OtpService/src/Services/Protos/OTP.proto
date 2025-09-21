@@ -5,7 +5,8 @@ option csharp_namespace = "OTPGrpc";
 package OTP;
 
 service OtpGrpcService {
-	rpc GenerateOTP (GenerateOTPRequest) returns (GenerateOTPReply);
+	rpc GenerateOTP (GenerateOTPRequest) returns (SendEmailReply);
+	rpc SendEmailPaymentSuccess (SendEmailPaymentSuccessRequest) returns (SendEmailReply);
 	rpc ValidateOTP (ValidateOTPRequest) returns (ValidateOTPReply);
 }
 
@@ -13,7 +14,12 @@ message GenerateOTPRequest {
     string email = 1;
 }
 
-message GenerateOTPReply {
+message SendEmailPaymentSuccessRequest {
+	string email = 1;
+	string amount = 2;
+}
+
+message SendEmailReply {
     bool success = 1;
 	string message = 2;
 }

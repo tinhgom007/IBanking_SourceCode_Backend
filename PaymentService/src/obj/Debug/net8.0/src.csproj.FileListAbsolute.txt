@@ -135,7 +135,6 @@ D:\work-space\SOA\test\backend\PaymentService\src\obj\Debug\net8.0\staticwebasse
 D:\work-space\SOA\test\backend\PaymentService\src\obj\Debug\net8.0\staticwebassets.build.json.cache
 D:\work-space\SOA\test\backend\PaymentService\src\obj\Debug\net8.0\staticwebassets.development.json
 D:\work-space\SOA\test\backend\PaymentService\src\obj\Debug\net8.0\staticwebassets.build.endpoints.json
-D:\work-space\SOA\test\backend\PaymentService\src\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 D:\work-space\SOA\test\backend\PaymentService\src\obj\Debug\net8.0\src.csproj.Up2Date
 D:\work-space\SOA\test\backend\PaymentService\src\obj\Debug\net8.0\src.dll
 D:\work-space\SOA\test\backend\PaymentService\src\obj\Debug\net8.0\refint\src.dll
@@ -150,3 +149,4 @@ D:\work-space\SOA\test\backend\PaymentService\src\bin\Debug\net8.0\Microsoft.Ide
 D:\work-space\SOA\test\backend\PaymentService\src\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 D:\work-space\SOA\test\backend\PaymentService\src\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
 D:\work-space\SOA\test\backend\PaymentService\src\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+D:\work-space\SOA\test\backend\PaymentService\src\obj\Debug\net8.0\src.sourcelink.json

@@ -1,6 +1,6 @@
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi;
 using Microsoft.OpenApi.Models;
-using src.Middleware;
 using src.ServiceConnector.AuthServiceConnector;
 using src.ServiceConnector.PaymentServiceConnector;
 using src.ServiceConnector.ProfileServiceConnector;
@@ -28,6 +28,9 @@ builder.Services.AddAuthentication("Bearer")
 
 builder.Services.AddAuthorization();
 
+builder.Services.AddControllers();
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(option =>
 {
     option.SwaggerDoc("v1", new OpenApiInfo { Title = "SFA API", Version = "v1" });
@@ -54,7 +57,13 @@ builder.Services.AddSwaggerGen(option =>
             new string[]{}
         }
     });
+
+    //option.EnableAnnotations();
 });
+
+Console.WriteLine("Current Environment: " + builder.Environment.EnvironmentName);
+Console.WriteLine("Connection String: " + builder.Configuration.GetConnectionString("DefaultConnection"));
+
 
 // Add services to the container.
 builder.Services.AddScoped<ProfileServiceConnector>();
@@ -63,10 +72,6 @@ builder.Services.AddScoped<TuitionServiceConnector>();
 builder.Services.AddScoped<PaymentServiceConnector>();
 builder.Services.AddHttpContextAccessor();
 
-builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
@@ -79,6 +84,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 //app.UseMiddleware<TokenRefreshMiddleware>();

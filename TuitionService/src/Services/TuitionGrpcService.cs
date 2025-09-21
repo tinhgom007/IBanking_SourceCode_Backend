@@ -31,7 +31,7 @@ namespace src.Services
             return reply;
         }
 
-        public override async Task<UpdateStatusTuitionReply> UpdateStatusTuition(UpdateStatusTuitionRequest request, ServerCallContext context)
+        public override async Task<UpdateStatusTuitionReply> UpdateStatusTuition(GetTuitionByIdRequest request, ServerCallContext context)
         {
             var tuition = await _tuitionRepository.GetTuitionByIdAsync(Guid.Parse(request.TuitionId));
 
@@ -53,6 +53,25 @@ namespace src.Services
             {
                 Success = true,
                 Message = "Tuition status updated to paid"
+            };
+        }
+
+        public override async Task<TuitionItem> GetTuitionById(GetTuitionByIdRequest request, ServerCallContext context)
+        {
+            var tuition = await _tuitionRepository.GetTuitionByIdAsync(Guid.Parse(request.TuitionId));
+
+            if (tuition == null)
+            {
+                throw new RpcException(new Status(StatusCode.NotFound, "Tuition NotFound"));
+            }
+
+            return new TuitionItem
+            {
+                TuitionId = tuition.TuitionId.ToString(),
+                Amount = tuition.Amount.ToString(),
+                DueDate = tuition.DueDate.ToString(),
+                Status = tuition.Status,
+                Semester = tuition.Semester
             };
         }
     }

@@ -31,8 +31,13 @@ namespace src.Controllers
             _paymentServiceConnector = paymentServiceConnector;
         }
 
-        [HttpPost("login")]
+        [HttpPost("sign-in")]
         [AllowAnonymous]
+        //[SwaggerOperation(
+        //    Summary = "Đăng nhập hệ thống",
+        //    Description = "Nhận username và password, trả về token nếu thành công",
+        //    Tags = new[] { "Authentication" }
+        //)]
         public async Task<ActionResult> Login(LoginRequestDto loginRequestDto)
         {
 
@@ -82,6 +87,32 @@ namespace src.Controllers
                 });
             }
         }
+
+        [HttpPost("sign-out")]
+        [AllowAnonymous]
+        public async Task<ActionResult> SignOut()
+        {
+            try
+            {
+                var result = await _authenticationConnnector.SignOut();
+
+                return Ok(new
+                {
+                    statusCode = 200,
+                    msg = "Sign Out successfully",
+                    metadata = result,
+                });
+            }
+            catch (Exception error)
+            {
+                return BadRequest(new
+                {
+                    statusCode = 400,
+                    msg = error.Message,
+                });
+            }
+        }
+
 
         [HttpGet("profile")]
         public async Task<ActionResult> GetProfile()
@@ -192,14 +223,12 @@ namespace src.Controllers
         [HttpPost("create-transaction")]
         public async Task<ActionResult> CreateTransaction(CreateTransactionRequestDto createTransactionRequestDto)
         {
-
             try
             {
                 var accessToken = HttpContext.Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
                 var result = await _paymentServiceConnector.CreateTransaction(createTransactionRequestDto.tuitionId, 
                                                                               createTransactionRequestDto.studentId, 
                                                                               createTransactionRequestDto.payerId, 
-                                                                              createTransactionRequestDto.amount,
                                                                               accessToken);
 
                 return Ok(new
