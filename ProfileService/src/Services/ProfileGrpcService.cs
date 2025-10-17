@@ -57,16 +57,37 @@ namespace src.Services
             };
         }
 
+        public override async Task<GetProfileReply> GetStudentByStudentId(GetStudentByStudentIdRequest request, ServerCallContext context)
+        {
+            var student = await _studentRepository.GetStudentByStudentIdAsync(request.StudentId);
+
+            if (student == null)
+            {
+                throw new RpcException(new Status(StatusCode.NotFound, "Student not found"));
+            }
+
+            return new GetProfileReply
+            {
+                StudentId = student.StudentId.ToString(),
+                FullName = student.FullName,
+                Balance = student.Balance.ToString(),
+                Gender = student.gender,
+                PhoneNumber = student.PhoneNumber,
+                Email = student.Email,
+                Marjor = student.marjor
+            };
+        }
+
         public override async Task<DeductBalanceReply> DeductBalance(DeductBalanceRequest request, ServerCallContext context)
         {
             var student = await _studentRepository.GetStudentByStudentIdAsync(request.StudentId);
 
-            if(student == null)
+            if (student == null)
             {
                 throw new RpcException(new Status(StatusCode.NotFound, "Profile not found"));
             }
 
-            if(student.Balance < decimal.Parse(request.Amount))
+            if (student.Balance < decimal.Parse(request.Amount))
             {
                 throw new RpcException(new Status(StatusCode.FailedPrecondition, "Insufficient balance"));
             }
@@ -109,6 +130,17 @@ namespace src.Services
                 Message = request.IsAdd ? "Balance added successfully" : "Balance deducted successfully",
                 NewBalance = student.Balance.ToString()
             };
+        }
+        
+        public override async Task<SearchStudentIdSuggestRepply> SearchStudentIdSuggest(SearchStudentIdSuggestRequest request, ServerCallContext context)
+        {
+            var student = await _studentRepository.GetStudentIdSuggest(request.PartialId);
+            var ListStudentId = student.Select(s => s.StudentId).ToList();
+
+            var reply = new SearchStudentIdSuggestRepply();
+            reply.StudentId.AddRange(ListStudentId);
+
+            return reply;
         }
     }
 }

@@ -6,11 +6,26 @@ package Profile;
 
 service ProfileGrpcService {
   rpc GetProfileById (GetProfileRequest) returns (GetProfileReply);
+  rpc GetStudentByStudentId (GetStudentByStudentIdRequest) returns (GetProfileReply);
   rpc DeductBalance (DeductBalanceRequest) returns (DeductBalanceReply);
   rpc HanldeBalance (BalanceRequest) returns (BalanceReply);
+  rpc SearchStudentIdSuggest (SearchStudentIdSuggestRequest) returns (SearchStudentIdSuggestRepply);
 }
 
 message GetProfileRequest {}
+
+
+message SearchStudentIdSuggestRepply {
+	repeated string studentId = 1;
+}
+
+message GetStudentByStudentIdRequest {
+  string studentId = 1;
+}
+
+message SearchStudentIdSuggestRequest {
+	string partialId = 1;
+}
 
 message GetProfileReply {
   string studentId = 1;

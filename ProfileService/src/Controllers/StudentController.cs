@@ -62,6 +62,38 @@ namespace src.Controllers
         //    }
         //}
 
+        [HttpGet("{studentId}")]
+        public async Task<ActionResult> GetStudentByStudentId(string studentId)
+        {
+            try
+            {
+                var student = await _studentService.GetStudentByStudentIdAsync(studentId);
+
+                if (student == null)
+                {
+                    return NotFound(new
+                    {
+                        statusCode = 404,
+                        msg = "Student Not Found"
+                    });
+                }
+
+                return Ok(new
+                {
+                    statusCode = 200,
+                    msg = "Get Student Successfully",
+                    metadata = student
+                });
+            }
+            catch (Exception error)
+            {
+                return BadRequest(new
+                {
+                    statusCode = 400,
+                    msg = error.Message
+                });
+            }
+        }
 
     }
 }

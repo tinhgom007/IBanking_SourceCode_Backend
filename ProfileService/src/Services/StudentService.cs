@@ -26,6 +26,27 @@ namespace src.Services
         {
             throw new NotImplementedException();
         }
+
+        public async Task<GetStudentByIdResponseDto> GetStudentByStudentIdAsync(string studentId)
+        {
+            var student = await _studentRepository.GetStudentByStudentIdAsync(studentId);
+            
+            if (student == null)
+            {
+                return null;
+            }
+
+            return new GetStudentByIdResponseDto
+            {
+                StudentId = student.StudentId,
+                FullName = student.FullName,
+                gender = student.gender,
+                PhoneNumber = student.PhoneNumber,
+                Email = student.Email,
+                Balance = student.Balance,
+                marjor = student.marjor
+            };
+        }
         //public async Task<GetStudentByIdResponseDto> GetStudentByUserIdAsync(HttpContext httpContext)
         //{
         //    if (!httpContext.Request.Cookies.ContainsKey("access_token"))

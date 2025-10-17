@@ -9,5 +9,15 @@ namespace src.Data
         {
         }
         public DbSet<Payment> Payments { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<Payment>()
+                .HasIndex(p => p.TuitionId)
+                .IsUnique()
+                .HasFilter("\"Status\" = 'success'");
+        }
     }
 }

@@ -8,5 +8,6 @@ namespace src.Interfaces.IServices
         Task<IEnumerable<Student>> GetAllStudentsAsync();
         Task AddStudentAsync(Student student);
         Task<GetStudentByIdResponseDto> GetStudentByUserIdAsync(HttpContext httpContext);
+        Task<GetStudentByIdResponseDto> GetStudentByStudentIdAsync(string studentId);
     }
 }

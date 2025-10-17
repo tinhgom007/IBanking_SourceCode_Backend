@@ -21,8 +21,21 @@ namespace src.Repositories
 
         public async Task<Payment> CreateTransaction(Payment payment)
         {
+            using var dbTransaction = await _context.Database.BeginTransactionAsync(System.Data.IsolationLevel.Serializable);
+
+            bool hasPending = await _context.Payments
+                .AnyAsync(t => t.PayerId == payment.PayerId && t.Status == "pending");
+
+            if (hasPending)
+            {
+                throw new InvalidOperationException("User already has a pending transaction");
+            }
+
             _context.Payments.Add(payment);
             await _context.SaveChangesAsync();
+
+            await dbTransaction.CommitAsync();
+
             return payment;
         }
 
@@ -36,6 +49,12 @@ namespace src.Repositories
             _context.Payments.Update(payment);
             await _context.SaveChangesAsync();
             return payment;
+        }
+
+        public async Task<bool> HasSuccessfulPayment(Guid tuitionId)
+        {
+            return await _context.Payments
+                .AnyAsync(p => p.TuitionId == tuitionId && p.Status == "success");
         }
     }
 }

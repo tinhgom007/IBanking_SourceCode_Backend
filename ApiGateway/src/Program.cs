@@ -1,5 +1,4 @@
 using Microsoft.IdentityModel.Tokens;
-using Microsoft.OpenApi;
 using Microsoft.OpenApi.Models;
 using src.ServiceConnector.AuthServiceConnector;
 using src.ServiceConnector.PaymentServiceConnector;
@@ -28,8 +27,19 @@ builder.Services.AddAuthentication("Bearer")
 
 builder.Services.AddAuthorization();
 
+// CORS: cho phép từ localhost:3000
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowLocalhost3000", policy =>
+    {
+        policy.WithOrigins("http://localhost:3000")
+              .AllowAnyHeader()
+              .AllowAnyMethod()
+              .AllowCredentials(); // dùng nếu có cookie, signalR, ...
+    });
+});
+
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(option =>
 {
@@ -57,13 +67,10 @@ builder.Services.AddSwaggerGen(option =>
             new string[]{}
         }
     });
-
-    //option.EnableAnnotations();
 });
 
 Console.WriteLine("Current Environment: " + builder.Environment.EnvironmentName);
 Console.WriteLine("Connection String: " + builder.Configuration.GetConnectionString("DefaultConnection"));
-
 
 // Add services to the container.
 builder.Services.AddScoped<ProfileServiceConnector>();
@@ -71,7 +78,6 @@ builder.Services.AddScoped<AuthServiceConnector>();
 builder.Services.AddScoped<TuitionServiceConnector>();
 builder.Services.AddScoped<PaymentServiceConnector>();
 builder.Services.AddHttpContextAccessor();
-
 
 var app = builder.Build();
 
@@ -83,6 +89,9 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+// Thêm CORS trước Authentication/Authorization
+app.UseCors("AllowLocalhost3000");
 
 app.UseAuthentication();
 app.UseAuthorization();

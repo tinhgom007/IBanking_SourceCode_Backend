@@ -90,16 +90,19 @@ namespace src.Services
             var httpContext = context.GetHttpContext();
             var accessToken = httpContext.Request.Cookies["access_token"];
             var refreshToken = httpContext.Request.Cookies["refresh_token"];
-            if (string.IsNullOrEmpty(accessToken) || string.IsNullOrEmpty(refreshToken))
-            {
-                throw new RpcException(new Status(StatusCode.NotFound, "No tokens found in cookies"));
-            }
+            // if (string.IsNullOrEmpty(accessToken) || string.IsNullOrEmpty(refreshToken))
+            // {
+            //     throw new RpcException(new Status(StatusCode.NotFound, "No tokens found in cookies"));
+            // }
             var refreshTokenStore = await _refreshTokenRepository.GetByToken(refreshToken);
-            if (refreshTokenStore == null || refreshTokenStore.IsRevoked || refreshTokenStore.ExpiresAt <= DateTime.UtcNow)
+            // if (refreshTokenStore == null || refreshTokenStore.IsRevoked || refreshTokenStore.ExpiresAt <= DateTime.UtcNow)
+            // {
+            //     throw new RpcException(new Status(StatusCode.NotFound, "Invalid refresh token"));
+            // }
+            if (refreshTokenStore != null)
             {
-                throw new RpcException(new Status(StatusCode.NotFound, "Invalid refresh token"));
+                await _refreshTokenRepository.RevokeAllTokens(refreshTokenStore.UserId);
             }
-            await _refreshTokenRepository.RevokeAllTokens(refreshTokenStore.UserId);
             httpContext.Response.Cookies.Delete("access_token");
             httpContext.Response.Cookies.Delete("refresh_token");
             return new SignOutResponseReply

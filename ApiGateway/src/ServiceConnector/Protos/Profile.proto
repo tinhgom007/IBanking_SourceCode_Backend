@@ -6,9 +6,23 @@ package Profile;
 
 service ProfileGrpcService {
   rpc GetProfileById (GetProfileRequest) returns (GetProfileReply);
+  rpc GetStudentByStudentId (GetStudentByStudentIdRequest) returns (GetProfileReply);
+  rpc SearchStudentIdSuggest (SearchStudentIdSuggestRequest) returns (SearchStudentIdSuggestRepply);
+}
+
+message SearchStudentIdSuggestRequest {
+	string partialId = 1;
+}
+
+message SearchStudentIdSuggestRepply {
+	repeated string studentId = 1;
 }
 
 message GetProfileRequest {}
+
+message GetStudentByStudentIdRequest {
+  string studentId = 1;
+}
 
 message GetProfileReply {
   string studentId = 1;

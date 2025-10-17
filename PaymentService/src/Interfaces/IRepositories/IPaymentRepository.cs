@@ -9,5 +9,6 @@ namespace src.Interfaces.IRepositories
         Task<IEnumerable<Payment>> GetPaymentByPayerId(string payerId);
         Task<Payment> CreateTransaction(Payment payment);
         Task<Payment> UpdateTransaction(Payment payment);
+        Task<bool> HasSuccessfulPayment(Guid tuitionId);
     }
 }

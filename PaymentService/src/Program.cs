@@ -29,6 +29,8 @@ builder.Services.AddAuthentication("Bearer")
         };
     });
 
+builder.Services.AddAuthorization();
+
 builder.Services.AddSwaggerGen(option =>
 {
     option.SwaggerDoc("v1", new OpenApiInfo { Title = "SFA API", Version = "v1" });
@@ -69,6 +71,7 @@ builder.Services.AddScoped<IPaymentRepository, PaymentRepository>();
 builder.Services.AddScoped<ProfileServiceConnector>();
 builder.Services.AddScoped<OTPServiceConnector>();
 builder.Services.AddScoped<TuitionServiceConnector>();
+
 builder.Services.AddHttpContextAccessor();
 
 builder.Services.AddControllers();
@@ -76,7 +79,6 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddGrpc();
-builder.Services.AddAuthorization();
 
 var app = builder.Build();
 

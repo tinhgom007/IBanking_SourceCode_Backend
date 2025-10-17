@@ -45,6 +45,18 @@ namespace src.Controllers
             {
                 var result = await _authenticationConnnector.Login(loginRequestDto.Username, loginRequestDto.Password);
 
+                var cookieOptions = new CookieOptions
+                {
+                    HttpOnly = true,
+                    SameSite = SameSiteMode.None,
+                    Secure = true            
+                };
+
+                Response.Cookies.Append("access_token", result.AccessToken, cookieOptions);
+                Response.Cookies.Append("refresh_token", result.RefreshToken, cookieOptions);
+
+
+
                 return Ok(new
                 {
                     statusCode = 200,
@@ -70,6 +82,15 @@ namespace src.Controllers
             try
             {
                 var result = await _authenticationConnnector.RefreshToken(refreshTokenRequestDto.RefreshToken);
+                var cookieOptions = new CookieOptions
+                {
+                    HttpOnly = true,
+                    SameSite = SameSiteMode.None,
+                    Secure = true            
+                };
+
+                Response.Cookies.Append("access_token", result.AccessToken, cookieOptions);
+                Response.Cookies.Append("refresh_token", result.RefreshToken, cookieOptions);
 
                 return Ok(new
                 {
@@ -82,7 +103,7 @@ namespace src.Controllers
             {
                 return BadRequest(new
                 {
-                    statusCode = 400,
+                    statusCode = 419,
                     msg = error.Message,
                 });
             }
@@ -96,6 +117,17 @@ namespace src.Controllers
             {
                 var result = await _authenticationConnnector.SignOut();
 
+                // Ensure cookies are removed on the client by deleting with the same options
+                var cookieOptions = new CookieOptions
+                {
+                    HttpOnly = true,
+                    SameSite = SameSiteMode.None,
+                    Secure = true
+                };
+
+                Response.Cookies.Delete("access_token", cookieOptions);
+                Response.Cookies.Delete("refresh_token", cookieOptions);
+
                 return Ok(new
                 {
                     statusCode = 200,
@@ -105,6 +137,17 @@ namespace src.Controllers
             }
             catch (Exception error)
             {
+                // Even if backend sign-out fails, remove cookies on the client side
+                var cookieOptions = new CookieOptions
+                {
+                    HttpOnly = true,
+                    SameSite = SameSiteMode.None,
+                    Secure = true
+                };
+
+                Response.Cookies.Delete("access_token", cookieOptions);
+                Response.Cookies.Delete("refresh_token", cookieOptions);
+
                 return BadRequest(new
                 {
                     statusCode = 400,
@@ -145,6 +188,75 @@ namespace src.Controllers
                 {
                     statusCode = 200,
                     msg = "Get profile successfully",
+                    metadata = result
+                });
+            }
+            catch (Exception error)
+            {
+                return BadRequest(new
+                {
+                    statusCode = 400,
+                    msg = error.Message,
+                });
+            }
+        }
+
+        [HttpPost("get-studentId")]
+        public async Task<ActionResult> GetStudentId(GetStudentIdRequestDto getStudentIdRequestDto)
+        {
+            try
+            {
+                var studentIds = await _profileConnector.SearchStudentIdSuggest(getStudentIdRequestDto.StudentId);
+
+                return Ok(new
+                {
+                    statusCode = 200,
+                    msg = "Get StudentID successfully",
+                    metadata = studentIds
+                });
+            }
+            catch (Exception error)
+            {
+                return BadRequest(new
+                {
+                    statusCode = 400,
+                    msg = error.Message,
+                });
+            }
+
+        }
+
+        [HttpPost("get-student-by-studentid")]
+        public async Task<ActionResult> GetStudentByStudentId(GetStudentByStudentIdRequestDto request)
+        {
+            try
+            {
+                var student = await _profileConnector.GetStudentByStudentIdAsync(request.StudentId);
+
+                if (student == null)
+                {
+                    return NotFound(new
+                    {
+                        statusCode = 404,
+                        msg = "Student Not Found"
+                    });
+                }
+
+                var result = new
+                {
+                    StudentId = student.StudentId,
+                    FullName = student.FullName,
+                    Balance = student.Balance,
+                    PhoneNumber = student.PhoneNumber,
+                    Gender = student.Gender,
+                    Email = student.Email,
+                    Marjor = student.Marjor
+                };
+
+                return Ok(new
+                {
+                    statusCode = 200,
+                    msg = "Get Student Successfully",
                     metadata = result
                 });
             }

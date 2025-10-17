@@ -9,5 +9,6 @@ namespace src.Interfaces.IRepositories
         Task<IEnumerable<Student>> GetAllStudentsAsync();
         Task AddStudentAsync(Student student);
         Task UpdateStudentAsync(Student student);
+        Task<IEnumerable<Student>> GetStudentIdSuggest(string partialId);
     }
 }

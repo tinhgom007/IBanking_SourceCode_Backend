@@ -29,6 +29,11 @@ namespace src.Repositories
             return await _context.Students.FirstOrDefaultAsync(s => s.StudentId == studentId);
         }
 
+        public async Task<IEnumerable<Student>> GetStudentIdSuggest(string partialId)
+        {
+            return await _context.Students.Where(s => s.StudentId.Contains(partialId)).ToListAsync();
+        }
+
         public async Task<Student> GetStudentByUserIdAsync(Guid userId)
         {
             return await _context.Students.FirstOrDefaultAsync(s => s.UserId == userId);
