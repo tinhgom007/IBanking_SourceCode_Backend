@@ -52,5 +52,18 @@ namespace src.ServiceConnector.OTPServiceConnector
 
             return await client.SendEmailPaymentSuccessAsync(request);
         }
+
+        public async Task<SendEmailReply> ResendOTP(string email)
+        {
+            using var channel = GetOTPServiceChannel();
+            var client = new OtpGrpcService.OtpGrpcServiceClient(channel);
+
+            var request = new GenerateOTPRequest
+            {
+                Email = email
+            };
+
+            return await client.ResendOTPAsync(request);
+        }
     }
 }

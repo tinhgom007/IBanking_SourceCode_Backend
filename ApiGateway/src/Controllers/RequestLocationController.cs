@@ -389,7 +389,30 @@ namespace src.Controllers
             }
         }
 
+        [HttpPost("resend-otp")]
+        public async Task<ActionResult> ResendOtp()
+        {
+            try
+            {
+                var accessToken = HttpContext.Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
+                var result = await _paymentServiceConnector.ResendOtpEmail(accessToken);
 
+                return Ok(new
+                {
+                    statusCode = 200,
+                    msg = "Resend OTP successfully",
+                    metadata = result,
+                });
+            }
+            catch (Exception error)
+            {
+                return BadRequest(new
+                {
+                    statusCode = 400,
+                    msg = error.Message,
+                });
+            }
+        }
 
     }
 }

@@ -10,5 +10,6 @@ namespace src.Interfaces.IRepositories
         Task<Payment> CreateTransaction(Payment payment);
         Task<Payment> UpdateTransaction(Payment payment);
         Task<bool> HasSuccessfulPayment(Guid tuitionId);
+        Task<Payment> GetPendingTransaction(string payerId, string tuitionId);
     }
 }

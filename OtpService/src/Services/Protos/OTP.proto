@@ -8,6 +8,7 @@ service OtpGrpcService {
 	rpc GenerateOTP (GenerateOTPRequest) returns (SendEmailReply);
 	rpc SendEmailPaymentSuccess (SendEmailPaymentSuccessRequest) returns (SendEmailReply);
 	rpc ValidateOTP (ValidateOTPRequest) returns (ValidateOTPReply);
+	rpc ResendOTP (GenerateOTPRequest) returns (SendEmailReply);
 }
 
 message GenerateOTPRequest {

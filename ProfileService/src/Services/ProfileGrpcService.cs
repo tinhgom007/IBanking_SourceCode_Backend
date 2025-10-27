@@ -134,7 +134,8 @@ namespace src.Services
         
         public override async Task<SearchStudentIdSuggestRepply> SearchStudentIdSuggest(SearchStudentIdSuggestRequest request, ServerCallContext context)
         {
-            var student = await _studentRepository.GetStudentIdSuggest(request.PartialId);
+            var upperPartialId = request.PartialId.ToUpper();
+            var student = await _studentRepository.GetStudentIdSuggest(upperPartialId);
             var ListStudentId = student.Select(s => s.StudentId).ToList();
 
             var reply = new SearchStudentIdSuggestRepply();

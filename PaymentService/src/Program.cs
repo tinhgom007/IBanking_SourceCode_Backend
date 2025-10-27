@@ -71,7 +71,7 @@ builder.Services.AddScoped<IPaymentRepository, PaymentRepository>();
 builder.Services.AddScoped<ProfileServiceConnector>();
 builder.Services.AddScoped<OTPServiceConnector>();
 builder.Services.AddScoped<TuitionServiceConnector>();
-
+builder.Services.AddHostedService<PaymentCleanupService>();
 builder.Services.AddHttpContextAccessor();
 
 builder.Services.AddControllers();

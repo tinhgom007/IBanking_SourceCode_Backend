@@ -8,6 +8,7 @@ service PaymentGrpcService {
 	rpc CreateTransaction (CreateTransactionRequest) returns (CreateTransactionReply);
 	rpc GetTransactionHistory (GetTransactionHistoryRequest) returns (GetTransactionHistoryReply);
 	rpc ConfirmTransaction (ConfirmTransactionRequest) returns (CreateTransactionReply);
+	rpc ResendOtpEmail (ResendOtpEmailRequest) returns (SendEmailReply);
 }
 
 message CreateTransactionRequest {	
@@ -47,4 +48,12 @@ message ConfirmTransactionRequest {
 	string paymentId = 1;
 	string otp = 2;
 	string email = 3;
+}
+
+message ResendOtpEmailRequest {
+}
+
+message SendEmailReply {
+    bool success = 1;
+    string message = 2;
 }

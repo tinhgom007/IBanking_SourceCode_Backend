@@ -19,6 +19,14 @@ namespace src.Repositories
             return await _context.Payments.FirstOrDefaultAsync(t => t.PaymentId == paymentId);
         }
 
+        public async Task<Payment?> GetPendingTransaction(string payerId, string tuitionId)
+        {
+            return await _context.Payments
+                .FirstOrDefaultAsync(p => p.PayerId == payerId 
+                                    && p.TuitionId == Guid.Parse(tuitionId) 
+                                    && p.Status == "pending");
+        }
+
         public async Task<Payment> CreateTransaction(Payment payment)
         {
             using var dbTransaction = await _context.Database.BeginTransactionAsync(System.Data.IsolationLevel.Serializable);
@@ -28,7 +36,7 @@ namespace src.Repositories
 
             if (hasPending)
             {
-                throw new InvalidOperationException("User already has a pending transaction");
+                return null;
             }
 
             _context.Payments.Add(payment);

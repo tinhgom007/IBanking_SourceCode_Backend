@@ -48,9 +48,28 @@ namespace src.Services
 
             if (balance < amount)
             {
-                throw new RpcException(new Status(StatusCode.NotFound, "Insufficient balance"));
+                throw new RpcException(new Status(StatusCode.FailedPrecondition, "Insufficient balance"));
             }
 
+            // ✅ 1. Kiểm tra transaction đang pending
+            var existingPending = await _paymentRepository.GetPendingTransaction(request.PayerId, request.TuitionId);
+            if (existingPending != null)
+            {
+                // Gửi lại OTP thay vì tạo giao dịch mới
+                await _otpConnector.ResendOTP(getProfile.Email);
+
+                return new CreateTransactionReply
+                {
+                    PaymentId = existingPending.PaymentId.ToString(),
+                    PayerId = existingPending.PayerId,
+                    StudentId = existingPending.StudentId,
+                    Amount = existingPending.Amount.ToString(),
+                    Status = existingPending.Status,
+                    CreateAt = existingPending.CreateAt.ToString("o"),
+                };
+            }
+
+            // ✅ 2. Không có pending -> tạo mới như cũ
             try
             {
                 Guid paymentId = Guid.NewGuid();
@@ -78,7 +97,7 @@ namespace src.Services
                     CreateAt = DateTime.UtcNow.ToString("o")
                 };
             }
-            catch(InvalidOperationException ex)
+            catch (InvalidOperationException ex)
             {
                 throw new RpcException(new Status(StatusCode.FailedPrecondition, ex.Message));
             }
@@ -91,14 +110,6 @@ namespace src.Services
             var otpResult = await _otpConnector.ValidateOTP(request.Email, request.Otp);
             if (!otpResult.IsValid)
             {
-                var txn = await _paymentRepository.GetPaymentById(Guid.Parse(request.PaymentId));
-                if (txn != null && txn.Status == "pending")
-                {
-                    txn.Status = "cancel";
-                    txn.UpdateAt = DateTime.UtcNow;
-                    await _paymentRepository.UpdateTransaction(txn);
-                }
-
                 throw new RpcException(new Status(StatusCode.Unauthenticated, "Invalid or expired OTP"));
             }
 
@@ -111,17 +122,19 @@ namespace src.Services
 
             using var dbTransaction = await _context.Database.BeginTransactionAsync(System.Data.IsolationLevel.Serializable);
 
+           // 3. Ensure tuition is not already paid
+            bool alreadyPaid = await _paymentRepository.HasSuccessfulPayment(transaction.TuitionId);
+            if (alreadyPaid)
+            {
+                transaction.Status = "cancel";
+                await _paymentRepository.UpdateTransaction(transaction);
+
+                await dbTransaction.CommitAsync();
+                throw new RpcException(new Status(StatusCode.FailedPrecondition, "This tuition was already paid by another account"));
+            }
+
             try
             {
-                // 3. Ensure tuition is not already paid
-                bool alreadyPaid = await _paymentRepository.HasSuccessfulPayment(transaction.TuitionId);
-                if (alreadyPaid)
-                {
-                    transaction.Status = "cancel";
-                    await _paymentRepository.UpdateTransaction(transaction);
-                    throw new RpcException(new Status(StatusCode.FailedPrecondition, "This tuition was already paid by another account"));
-                }
-
                 // 4. Deduct balance
                 var profileUpdate = await _profileConnector.HanldeBalance(transaction.PayerId, transaction.Amount.ToString(), false);
                 if (!profileUpdate.Success)
@@ -172,7 +185,7 @@ namespace src.Services
         {
             var payments = await _paymentRepository.GetPaymentByPayerId(request.StudentId);
 
-            if(payments == null || !payments.Any())
+            if (payments == null || !payments.Any())
             {
                 throw new RpcException(new Status(StatusCode.NotFound, "No transactions found"));
             }
@@ -193,6 +206,17 @@ namespace src.Services
                 Transactions = { transactions }
             };
 
+        }
+        
+        public override async Task<PaymentGrpc.SendEmailReply> ResendOtpEmail(ResendOtpEmailRequest request, ServerCallContext context)
+        {
+            var profile = await _profileConnector.GetProfileAsync();
+            var send = await _otpConnector.ResendOTP(profile.Email);
+            return new PaymentGrpc.SendEmailReply
+            {
+                Success = send.Success,
+                Message = send.Message
+            };
         }
     }
 }

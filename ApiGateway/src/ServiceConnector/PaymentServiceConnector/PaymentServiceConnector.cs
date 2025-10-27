@@ -64,5 +64,20 @@ namespace src.ServiceConnector.PaymentServiceConnector
 
             return await client.ConfirmTransactionAsync(request, headers);
         }
+
+        public async Task<SendEmailReply> ResendOtpEmail(string accessToken)
+        {
+            using var channel = GetPaymentServiceChannel();
+            var client = new PaymentGrpcService.PaymentGrpcServiceClient(channel);
+
+            var request = new ResendOtpEmailRequest { };
+
+            var headers = new Metadata
+            {
+                { "Authorization", $"Bearer {accessToken}" }
+            };
+
+            return await client.ResendOtpEmailAsync(request, headers);
+        }
     }
 }
