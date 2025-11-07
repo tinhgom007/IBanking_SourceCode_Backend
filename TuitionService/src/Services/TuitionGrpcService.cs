@@ -25,7 +25,8 @@ namespace src.Services
                 Amount = t.Amount.ToString(),
                 DueDate = t.DueDate.ToString("yyyy-MM-dd"),
                 Status = t.Status,
-                Semester = t.Semester
+                Semester = t.Semester,
+                CreatedAt = t.CreatedAt.ToString("o")
             }));
  
             return reply;
@@ -71,7 +72,8 @@ namespace src.Services
                 Amount = tuition.Amount.ToString(),
                 DueDate = tuition.DueDate.ToString(),
                 Status = tuition.Status,
-                Semester = tuition.Semester
+                Semester = tuition.Semester,
+                CreatedAt = tuition.CreatedAt.ToString("o")
             };
         }
     }

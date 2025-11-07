@@ -20,6 +20,7 @@ message TuitionItem {
 	string dueDate = 3;
 	string status = 4;
 	string semester = 5;
+	string createdAt = 6;
 }
 
 message GetTuitionByIdRequest {

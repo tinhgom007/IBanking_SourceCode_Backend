@@ -37,5 +37,17 @@ namespace src.ServiceConnector.TuitionServiceConnector
 
             return await client.GetTuitionByIdAsync(request);
         }
+
+        public async Task<GetTuitionAsyncReply> GetTuitions(string studentId)
+        {
+            using var channel = GetTuitionGrpcChannel();
+            var client = new TuitionGrpcService.TuitionGrpcServiceClient(channel);
+            var request = new GetTuitionAsyncRequest
+            {
+                StudentId = studentId
+            };
+
+            return await client.GetTuitionAsync(request);
+        }
     }
 }

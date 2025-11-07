@@ -51,6 +51,34 @@ namespace src.Services
                 throw new RpcException(new Status(StatusCode.FailedPrecondition, "Insufficient balance"));
             }
 
+            // ✅ Kiểm tra xem có Tuition nào chưa thanh toán với CreatedAt trước Tuition hiện tại không
+            if (string.IsNullOrEmpty(tuition.CreatedAt))
+            {
+                throw new RpcException(new Status(StatusCode.InvalidArgument, "Tuition CreatedAt is missing"));
+            }
+
+            if (!DateTime.TryParse(tuition.CreatedAt, out var currentTuitionCreatedAt))
+            {
+                throw new RpcException(new Status(StatusCode.InvalidArgument, "Invalid Tuition CreatedAt format"));
+            }
+
+            var unpaidTuitions = await _tuitionServiceConnector.GetTuitions(request.StudentId);
+            
+            foreach (var otherTuition in unpaidTuitions.Tuitions)
+            {
+                if (otherTuition.TuitionId == request.TuitionId)
+                    continue;
+
+                if (string.IsNullOrEmpty(otherTuition.CreatedAt))
+                    continue;
+
+                if (DateTime.TryParse(otherTuition.CreatedAt, out var otherTuitionCreatedAt) &&
+                    otherTuitionCreatedAt < currentTuitionCreatedAt)
+                {
+                    throw new RpcException(new Status(StatusCode.FailedPrecondition, "Cannot create transaction. There are older unpaid tuitions that must be paid first."));
+                }
+            }
+
             // ✅ 1. Kiểm tra transaction đang pending
             var existingPending = await _paymentRepository.GetPendingTransaction(request.PayerId, request.TuitionId);
             if (existingPending != null)
